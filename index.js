@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cookieParser());
 
 app.use(cors({
-    origin:["http://localhost:3000"],
+    origin:["https://flightbooking-tardiverse-app.netlify.app"],
     methods:["GET","POST","PUT","DELETE"],
 }
 ))
