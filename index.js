@@ -243,6 +243,26 @@ app.get("/getflights",async function(req,res){
 
     }
 })
+app.get("/getflights/:id",async function(req,res){
+    const id = req.params.id
+    // const id = "chennai$Goa"
+    const getname = id.split("$")
+
+    try{
+        let result =[]
+        const data = await Flight.find({From:getname[0]});
+        data.map((e)=>{
+            if(e.To==getname[1]){
+                result.push(e)
+            }
+        })
+        res.send(result)
+        // console.log(data)
+
+    }catch(err){
+            console.log(err.message)
+    }
+})
 app.get("/getflight/:id",async function(req,res){
     const id= req.params.id
     try{
